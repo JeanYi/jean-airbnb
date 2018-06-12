@@ -1,9 +1,26 @@
+<!-- Form for new users to sign up -->
+<div class="text-field">
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name, type: 'text' %>
+</div>
+
+<div class="text-field">
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name, type: 'text' %>
+</div>
+
 <div class="text-field">
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email' %>
+</div>
+
+<div class="date-field">
+  <%= form.label :birthday %>
+  <%= form.text_field :birthday, type: 'date' %>
 </div>
 
 <div class="password-field">
   <%= form.label :password %>
   <%= form.password_field :password %>
 </div>
+

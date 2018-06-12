@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jean AirBnB </title>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
-  <%= csp_meta_tag %>
 </head>
-<body>
+<body><!-- 
   <div id="header">
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>
-  </div>
+  </div> -->
 
   <div id="flash">
     <% flash.each do |key, value| -%>
@@ -26,12 +24,3 @@
 </html>
 
 
-<!-- Original  -->
-  <!-- <head>
-    <title>JeanAirbnb</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head> -->
