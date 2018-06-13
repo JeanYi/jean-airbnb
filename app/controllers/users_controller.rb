@@ -16,22 +16,27 @@ class UsersController < Clearance::BaseController
 
   def create
     @user = user_from_params
-
     if @user.save
       sign_in @user
-      redirect_to root_url 
+      redirect_to root_url, notice = "Successfully created"
     else
       render template: "users/new"
     end
   end
 
   def edit 
-    @edit_user_details = User.find_by_id(params[:id])
+    @edit_user = User.find_by_id(params[:id])
     render template: "users/edit"
   end 
 
   def update 
-    @update_user_details = @edit_user_details.update 
+    @edit_user = User.find_by_id(params[:id])
+    if @edit_user.update_attributes(update_user_params)
+    redirect_to root_url, notice: "Successful update"
+    else 
+      render template: "users/edit"
+      flash[:unsuccessful_update] = "Please try again"
+    end 
   end 
 
 # PUT PRIVATE METHODS HERE # 
@@ -54,6 +59,10 @@ class UsersController < Clearance::BaseController
   def url_after_create
     Clearance.configuration.redirect_url
   end
+
+  def update_user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :birthday)
+  end 
 
   def user_from_params
     email = user_params.delete(:email)
