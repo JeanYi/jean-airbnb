@@ -26,8 +26,13 @@ class UsersController < Clearance::BaseController
   end
 
   def edit 
-    @edit_user_details = user_from_params.find_by_id(params[:id])
+    @edit_user_details = User.find_by_id(params[:id])
+    render template: "users/edit"
+  end 
 
+  def update 
+    @update_user_details = @edit_user_details.update 
+  end 
 
 # PUT PRIVATE METHODS HERE # 
   private
@@ -55,14 +60,14 @@ class UsersController < Clearance::BaseController
     password = user_params.delete(:password)
 	  first_name = user_params.delete(:first_name)
 	  last_name = user_params.delete(:last_name)
-	  birthday = user_params.delete(:birthday)
+	  birthday = user_params.delete(:birthday)    
 
   Clearance.configuration.user_model.new(user_params).tap do |user|
-	 user.email = email
-	 user.password = password
-	 user.first_name = first_name
-	 user.last_name = last_name
-	 user.birthday = birthday
+	   user.email = email
+	   user.password = password
+	   user.first_name = first_name
+	   user.last_name = last_name
+	   user.birthday = birthday
     end
   end
 
