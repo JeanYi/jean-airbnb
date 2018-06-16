@@ -1,2 +1,10 @@
-<h1>Listings#edit</h1>
-<p>Find me in app/views/listings/edit.html.erb</p>
+<h1>Edit Listing</h1>
+
+<%= render partial: "form" %>
+
+<div class="other-links">
+	<%= link_to "New Listing", new_listing_path %> <br/>
+	<%= link_to "Show My Listings", my_listings_path %> 
+</div>
+
+

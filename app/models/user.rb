@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
-  has_many :listings
+  has_many :listings, dependent: :destroy 
   has_many :reservations
   enum role: [:customer, :moderator, :superadmin]
-  mount_uploader :image, AvatarUploader
+  mount_uploader :image, ImageUploader
+  validates :image, file_size: { less_than: 1.megabytes }
 end

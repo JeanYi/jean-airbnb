@@ -18,7 +18,7 @@ class UsersController < Clearance::BaseController
     @user = user_from_params
     if @user.save
       sign_in @user
-      redirect_to root_url, notice = "Successfully created"
+      redirect_to root_url 
     else
       render template: "users/new"
     end
@@ -32,7 +32,7 @@ class UsersController < Clearance::BaseController
   def update 
     @edit_user = User.find_by_id(params[:id])
     if @edit_user.update_attributes(update_user_params)
-    redirect_to root_url, notice: "Successful update"
+    redirect_to root_url
     else 
       render template: "users/edit"
       flash[:unsuccessful_update] = "Please try again"
@@ -61,7 +61,7 @@ class UsersController < Clearance::BaseController
   end
 
   def update_user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :birthday)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :birthday, :image)
   end 
 
   def user_from_params
@@ -69,7 +69,9 @@ class UsersController < Clearance::BaseController
     password = user_params.delete(:password)
 	  first_name = user_params.delete(:first_name)
 	  last_name = user_params.delete(:last_name)
-	  birthday = user_params.delete(:birthday)    
+	  birthday = user_params.delete(:birthday)   
+    role = user_params.delete(:role)
+    image = user_params.delete(:image)
 
   Clearance.configuration.user_model.new(user_params).tap do |user|
 	   user.email = email
@@ -77,6 +79,8 @@ class UsersController < Clearance::BaseController
 	   user.first_name = first_name
 	   user.last_name = last_name
 	   user.birthday = birthday
+     user.role = role 
+     user.image = image 
     end
   end
 

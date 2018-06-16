@@ -1,2 +1,8 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<h1>Show My Listing</h1>
+
+<%= @listing.name %>
+
+<% if current_user == @listing.user %>
+	<%= button_to "Edit", edit_listing_path, method: :get %>
+	<%= button_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

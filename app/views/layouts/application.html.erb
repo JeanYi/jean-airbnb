@@ -5,11 +5,12 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+
   <div id="header">
     <% if signed_in? -%>
       <%= button_to "Sign Out", sign_out_path, method: :delete %>
     <% else -%>
-      <%= button_to "Sign Up", sign_up_path %>
+      <%= button_to "Sign Up", sign_up_path, method: :get %>
     <% end -%>
   </div>
 

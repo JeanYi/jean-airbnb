@@ -1,2 +1,20 @@
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<h1>Listings Index</h1>
+
+<% @listings.each do |l| %>
+	<%= link_to l.name, listing_path(l) %>
+	<%= l.description %> 
+	<br/> 
+<% end %> 
+	
+	<br/> 
+
+<div class="other-links">
+	<%= button_to "Create New Listing", new_listing_path, method: :get %> <br/>
+	<%= button_to "Show My Listings", my_listings_path, method: :get %> <br/> 
+</div>
+
+
+
+
+
+

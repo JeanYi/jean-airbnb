@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user 
   has_many :reservations
-  enum verified: [:true, :false]
-  mount_uploaders :listing_images, AvatarUploader
+  enum verified: [:false, :true]
+  mount_uploader :listing_images, ImageUploader
 end
