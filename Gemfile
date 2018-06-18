@@ -35,6 +35,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+# Gem to support file validation 
+gem 'file_validators'
+
+# Use bootstrap for styling 
+gem 'bootstrap', '~> 4.1.1'
+
+# Use jquery for javascript 
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

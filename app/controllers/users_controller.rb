@@ -11,7 +11,6 @@ class UsersController < Clearance::BaseController
 
   def new
     @user = user_from_params
-    render template: "users/new"
   end
 
   def create
@@ -25,13 +24,12 @@ class UsersController < Clearance::BaseController
   end
 
   def edit 
-    @edit_user = User.find_by_id(params[:id])
-    render template: "users/edit"
+    @user = User.find(params[:id])
   end 
 
   def update 
-    @edit_user = User.find_by_id(params[:id])
-    if @edit_user.update_attributes(update_user_params)
+    @user = User.find(params[:id])
+    if @user.update_attributes(update_user_params)
     redirect_to root_url
     else 
       render template: "users/edit"

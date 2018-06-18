@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
   def create
       @listing = current_user.listings.new(listings_params)
       if @listing.save
-          redirect_to listings_path
+          redirect_to users_listings
       else 
         render "new"
       end
@@ -54,7 +54,7 @@ class ListingsController < ApplicationController
 
 private 
   def listings_params 
-    params.require(:listing).permit(:name, :place_type, :room_number, :bed_number, :guest_number, :country, :state, :city, :zipcode, :description, :address, :price)
+    params.require(:listing).permit(:name, :place_type, :room_number, :bed_number, :guest_number, :country, :state, :city, :zipcode, :description, :address, :price, {listing_images: []})
   end
 
   def set_listing

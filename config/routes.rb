@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-
+  
   root 'welcome#index'
-
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
-  resources :listings, controller: "listings" 
 
   resources :users, controller: "users", only: [:create, :new, :edit, :update] do
     resource :password,controller: "clearance/passwords",only: [:create, :edit, :update]
+    resources :listings, controller: "listings" do 
+      resources :reservations, controller: "reservations"
+    end 
   end
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"

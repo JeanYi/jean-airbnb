@@ -1,9 +1,9 @@
   <div class="main-page">
 	 <h2>Kinda Like Airbnb</h2>
 
-	 <%= image_tag(@user.image.url, alt:Image) if @user.image? %> 
-
-	 <%= link_to "Edit", edit_user_path %> 
+	 <% if current_user %>
+          <img src="<%= current_user.image.thumb.url %>">
+        <% end %>
 
   </div>
 

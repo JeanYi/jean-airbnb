@@ -1,9 +1,7 @@
 <h1>Update your profile</h1>
 
-<div class="row">
-    <%= form_for @edit_user do |form| %>
-    <%= render partial: '/users/form', object: form %>
-</div>
+    <%= form_for @user do |form| %>
+    	<%= render partial: '/users/form', object: form %>
 
     <div class="submit-field">
       <%= form.submit %>
