@@ -1,0 +1,19 @@
+<h1>Show My Listing</h1>
+
+<ul> 
+	<li> <%= @listing.name %> <br/> 
+	<%= @listing.description %> </li>
+
+	<br/>    
+
+	<% if @listing.listing_images != nil %> 
+		<% @listing.listing_images.each do |images| %> 
+				<img src= "<%= images.bigthumb.url %>" >		
+		<% end %>		
+	<% end %>		 
+</ul>
+
+<% if current_user == @listing.user %>
+	<%= button_to "Edit", edit_listing_path, method: :get %>
+	<%= button_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

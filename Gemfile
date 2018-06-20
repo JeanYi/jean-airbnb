@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Ruby version 
 ruby '2.5.1'
+# User carrierwave for uploading pictures 
+gem 'carrierwave', '~> 1.0'
 # Protect password 
 gem 'figaro'
 # Use clearance for email and password authentication 
@@ -31,7 +34,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+# Gem to support file validation 
+gem 'file_validators'
+
+# Use bootstrap for styling 
+gem 'bootstrap', '~> 4.1.1'
+
+# Use jquery for javascript 
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,0 +1,28 @@
+<h1>Listings Index</h1>
+
+<ul> 
+<% @listings.each do |l| %>
+	
+	<li> <%= link_to l.name, user_listing_path(l) %> </li>  
+	<%= l.description %> 
+	<br/> 
+	
+	<% if l.listing_images != nil %> 
+		<% l.listing_images.each do |images| %> 
+			<img src= "<%= images.bigthumb.url %>" >		
+		<% end %> 
+	<% end %> 
+	<br/> 	
+
+<% end %>  
+</ul>
+
+<div class="other-links">
+	<%= button_to "Create New Listing", new_listing_path, method: :get %> <br/>
+	<%= button_to "Show My Listings", my_listings_path, method: :get %> <br/> 
+</div>
+
+
+
+
+

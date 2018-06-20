@@ -1,13 +1,9 @@
   <div class="main-page">
 	 <h2>Kinda Like Airbnb</h2>
+
+	 <% if current_user %>
+          <img src="<%= current_user.image.thumb.url %>">
+        <% end %>
+
   </div>
 
-  <div class="options">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_up"), sign_up_path %> 
-      <%= link_to t(".sign_in"), sign_in_path %>  
-      <%= link_to t(".sign_out"), sign_out_path, method: :delete %> </span> 
-    <% end -%>
-  </div> 

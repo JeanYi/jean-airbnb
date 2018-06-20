@@ -1,18 +1,14 @@
-<% provide(:title, 'Edit user') %>
-<% provide(:button_text, 'Save changes') %>
-
 <h1>Update your profile</h1>
 
-<div class="row">
-    <%= form_for @edit_user_details do |form| %>
-    <%= render partial: 'users/form', object: form %>
-</div>
+    <%= form_for @user do |form| %>
+    	<%= render partial: '/users/form', object: form %>
 
     <div class="submit-field">
       <%= form.submit %>
     </div>
 
     <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
       <%= link_to t(".sign_out"), sign_out_path %>
     </div>
+
+<% end %>
