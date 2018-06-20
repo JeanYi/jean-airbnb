@@ -33,7 +33,7 @@
         <!-- User dropdown menu -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% if signed_in? -%>
-                <a class="dropdown-item"><%= button_to "Sign Out", sign_out_path, method: :delete %></a> 
+                <a class="dropdown-item"><%= link_to "Sign Out", sign_out_path, method: :delete %></a> 
                 <a class="dropdown-item" href=""> <%= link_to "Edit Profile", edit_user_path(id: @used.id) %> </a> 
                 <% else %> 
                 <a class="dropdown-item"> <%= link_to "Sign In", sign_in_path %> </a> 
@@ -78,7 +78,6 @@
   </div>
 
   <%= button_to "Sign Out", sign_out_path, method: :delete %>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
