@@ -1,0 +1,31 @@
+<h1> Make Your Reservation </h1>
+
+<strong> <%= @listing.name %> </strong> <br/> 
+<%= @listing.description %> <br/><br/>  
+
+<%= form_for [@listing, @reservation] do |form| %>
+
+<div class="date-field">
+  <%= form.label :arriving_date %>
+  <%= form.date_field :arriving_date %>
+</div>
+
+<div class="date-field">
+  <%= form.label :leaving_date %>
+  <%= form.date_field :leaving_date %>
+</div>
+
+<div class="text-field">
+  <%= form.label :remarks %> <br/> 
+  <%= form.text_area :remarks %>
+</div>
+
+</br> 
+
+<div class="submit-field">
+  <%= form.submit %>
+</div>
+
+<% end %>	
+
+

@@ -23,6 +23,10 @@ class UsersController < Clearance::BaseController
     end
   end
 
+  def show 
+    @user = User.find(params[:id])
+  end 
+
   def edit 
     @user = User.find(params[:id])
   end 
@@ -37,9 +41,7 @@ class UsersController < Clearance::BaseController
     end 
   end 
 
-# PUT PRIVATE METHODS HERE # 
   private
-
   def avoid_sign_in
     warn "[DEPRECATION] Clearance's `avoid_sign_in` before_filter is " +
       "deprecated. Use `redirect_signed_in_users` instead. " +
