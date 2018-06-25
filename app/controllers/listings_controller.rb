@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
   def create
       @listing = current_user.listings.new(listings_params)
       if @listing.save
-          redirect_to listings_path 
+          redirect_to listing_path 
       else 
         render "new"
       end
@@ -28,9 +28,12 @@ class ListingsController < ApplicationController
   def edit
   end
 
+
+  # Path = edit_listing_path 
+  # PATCH /listing/:id 
   def update 
-    if @listing.update(listings_params)
-        redirect_to listings_path 
+    if @listing.update_attributes(listings_params)
+        redirect_to listing_path 
     else 
         render "edit"
     end 
@@ -68,7 +71,21 @@ class ListingsController < ApplicationController
 
 private 
   def listings_params 
-    params.require(:listing).permit(:name, :place_type, :room_number, :bed_number, :guest_number, :country, :state, :city, :zipcode, :description, :address, :price, {listing_images: []})
+    params.require(:listing).permit( 
+      :name, 
+      :place_type, 
+      :room_number, 
+      :bed_number, 
+      :guest_number, 
+      :country, 
+      :state, 
+      :city, 
+      :zipcode, 
+      :description, 
+      :address, 
+      :price_cents,
+      :price_currency, 
+      {listing_images: []})
   end
 
 # Use callbacks to share common setup or constraints between actions.

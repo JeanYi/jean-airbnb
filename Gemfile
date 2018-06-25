@@ -37,6 +37,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
 # Gem to support file validation 
 gem 'file_validators'
+# Use braintree for payment gateway  
+gem 'braintree'
+
+gem 'money-rails', '~> 1.7'
+gem 'json', '~> 1.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

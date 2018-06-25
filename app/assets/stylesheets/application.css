@@ -10,20 +10,18 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * 
- *
+ *=require_tree .
+ *=require_self
  */
- 
+
  head, body, header {
     font-family: 'Tajawal', sans-serif;
 	}
 
-
    .avatar-small {
        width: 48px;  
     }
-   
-     
+        
    .avatar-medium {
          width: 48px;    
     }
@@ -35,17 +33,13 @@
     .avatar-full {width: 100%;
     }  
        
-
     body {  
     color: #565a5c;
     }
    
-   
-   
     .container { 
     width: 80%;
     }
-   
    
    
     .navbar-default {
@@ -53,55 +47,38 @@
    
     }
    
-   
-   
     .navbar-default .navbar-brand {
    
     color: #FF5A5F;
-   
     font-size: 2em;
-   
     font-weight: 400;
    
     }
    
      
    .btn-primary.btn {
-   
-    border: 1px solid #ff5a5f;
-   
+    border: 1px solid #ff5a5f; 
     border-radius: 2px;
-   
     font-weight: bold;
-   
     background-color: #ff5a5f;
-   
     color: #fff;
-   
     padding: 10px 25px 10px 25px;
    
     }
    
      
    .btn-primary.btn:hover, .btn-primary.btn:focus {
-   
     border-color: #ff7e82;
-   
     border-bottom-color: #fa0008;
-   
     background-color: #ff7e82;  
-   
     outline:none;
    
     }
    
      
    .btn-primary.btn:active {
-   
     border-color: #e00007;
-   
     background-color: #e00007;  
-   
     outline:none;
    
     }
@@ -110,11 +87,8 @@
    .btn-default.btn {
    
     width: 100%;
-   
     border-radius: 2px;
-   
     padding: 10px 0;
-   
     margin-top: 10px;
    
     }

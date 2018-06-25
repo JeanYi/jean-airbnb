@@ -1,4 +1,4 @@
-class Clearance::SessionsController < Clearance::BaseController
+class SessionsController < Clearance::SessionsController
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:new]
     skip_before_action :require_login,

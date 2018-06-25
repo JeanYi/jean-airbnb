@@ -2,7 +2,6 @@
      <div class="col-md-3">
        <ul class= "sidebar-list">
 
-              <%= link_to 'Show my profile', user_path, class: 'sidebar-link active' %>  
    </div>    
       </ul>    
        <div class="col-md-7 text-center">
@@ -19,23 +18,30 @@
    
                  <div class="form-group">First Name
    
-                 <%= form.text_field :first_name, autofocus: true, class: "form-control", placeholder: "Full name (First name + Last name)" %>
+                 <%= form.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
+   
+                 </div>
+
+                 <div class="form-group">First Name
+   
+                 <%= form.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
    
                  </div>
    
                  <div class="form-group">Email
    
-                     <%= form.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+                <%= form.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
    
                  </div>
 
-                     <div class="row">
+                  <div class="row">
    
                    <div class="col-md-4">
    
                     <div class="form-group">
    
                       <span class="btn btn-default btn-file"> 
+
                       Upload your profile picture </span> <%= form.file_field :image %>
    
                       </span>
@@ -45,9 +51,6 @@
                   </div>  
    
                   </div>
-
-
-
 
                  <div class="form-group"> Birthday
                  <%=form.date_field :birthday, class: "form-control", placeholder: "BD" %>

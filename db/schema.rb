@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_17_082839) do
+ActiveRecord::Schema.define(version: 2018_06_24_154918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 2018_06_17_082839) do
     t.string "city"
     t.string "zipcode"
     t.string "address"
-    t.decimal "price"
     t.text "description"
     t.integer "user_id"
     t.integer "verified", default: 0
     t.json "listing_images"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "MYR", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -43,6 +44,9 @@ ActiveRecord::Schema.define(version: 2018_06_17_082839) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_price_cents", default: 0, null: false
+    t.string "total_price_currency", default: "MYR", null: false
+    t.integer "payment_status", default: 0
   end
 
   create_table "users", force: :cascade do |t|
