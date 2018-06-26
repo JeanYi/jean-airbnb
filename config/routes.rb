@@ -2,20 +2,24 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, controller: "sessions", only: [:create]
 
   resources :users, controller: "users", only: [:create, :new, :edit, :update, :show] do
-    resource :password,controller: "clearance/passwords",only: [:create, :edit, :update] 
+    resource :password,controller: "clearance/passwords", only: [:create, :edit, :update] 
   end
 
   resources :listings, controller: "listings" do 
-    resources :reservations, except: [:index], controller: "reservations"
-  end 
+    resources :reservations, controller: "reservations" do  
+    end 
+  end
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/sign_in" => "sessions#new", as: "sign_in"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   get "/mylistings" => "listings#mylistings", as: "my_listings"
+  get "/your_reservations" => "reservations#your_reservations", as: "your_reservations"
+  get "/payment" => "braintree#new", as: "payment"
+  post "/payment/checkout"=> "braintree#checkout", as: "payment_checkout"
 end
 
 

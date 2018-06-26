@@ -1,5 +1,3 @@
-<h1>Listings Index</h1>
-
 <ul> 
 <% @listings.each do |l| %>
 	<li> <%= link_to l.name, listing_path(l) %> </li>  

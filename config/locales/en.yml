@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+
+en:
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"

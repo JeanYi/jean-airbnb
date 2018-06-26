@@ -1,9 +1,9 @@
-<h1> Make Your Reservation </h1>
+<h3> Make Your Reservation </h3>
 
 <strong> <%= @listing.name %> </strong> <br/> 
-<%= @listing.description %> <br/><br/>  
+<%= @listing.description %> <br/>
 
-<%= form_for [@listing, @reservation] do |form| %>
+<%= form_for @reservation, url: listing_reservations_path, method: :post do |form| %>
 
 <div class="date-field">
   <%= form.label :arriving_date %>
@@ -23,7 +23,7 @@
 </br> 
 
 <div class="submit-field">
-  <%= form.submit %>
+  <%= form.submit "Preview Reservation" %>
 </div>
 
 <% end %>	

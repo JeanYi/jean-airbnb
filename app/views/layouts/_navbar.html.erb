@@ -1,0 +1,59 @@
+<!-- Company Logo -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-image">
+    <img src="https://cdn.dribbble.com/users/204536/screenshots/1247790/logo_1x.jpg" width="50" height="40" alt="">
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- Home page link -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/"> Home <span class="sr-only"></span></a>
+        </li>
+
+        <!-- User link -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+        <!-- User dropdown menu -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <% if signed_in? -%>
+                <a class="dropdown-item"> <%= link_to "Sign Out", sign_out_path, method: :delete, data: { confirm: 'Are you sure?'} %> </a>
+                <a class="dropdown-item" href="/users/<%=current_user.id%>/edit"> Edit Profile </a> 
+                <% else %> 
+                <a class="dropdown-item"><%= link_to "Sign In", sign_in_path %> </a> 
+                <a class="dropdown-item"><%= link_to "Sign Up", sign_up_path %> </a> 
+                <% end %> 
+            </div>  
+        </li>
+        <!-- Listing & Reservations -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Listings </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/listings">All Listings</a>
+            <a class="dropdown-item" href="#">Your Listings</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+
+        </li>
+        <!-- Extra Link -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Reservations </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/your_reservations"> Your Reservations </a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item disabled" href="#">Disabled link</a>
+          </div>
+        </li>
+      </ul>
+      <!-- Search Bar -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+</nav>

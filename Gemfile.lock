@@ -51,6 +51,8 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
+    braintree (2.89.0)
+      builder (>= 2.0.0)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.2.1)
@@ -81,7 +83,13 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
+    delayed_job (4.1.5)
+      activesupport (>= 3.0, < 5.3)
+    delayed_job_active_record (4.1.3)
+      activerecord (>= 3.0, < 5.3)
+      delayed_job (>= 3.0, < 5)
     email_validator (1.6.0)
       activemodel
     erubi (1.7.1)
@@ -100,6 +108,11 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (1.8.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.6.0)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -120,6 +133,15 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    monetize (1.7.0)
+      money (~> 6.9)
+    money (6.11.3)
+      i18n (>= 0.6.4, < 1.1)
+    money-rails (1.11.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.7.0)
+      money (~> 6.11.0)
+      railties (>= 3.0)
     msgpack (1.2.4)
     multi_json (1.13.1)
     nio4r (2.3.1)
@@ -129,6 +151,8 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
+    rack-protection (2.0.3)
+      rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
@@ -159,6 +183,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -175,6 +200,11 @@ GEM
     selenium-webdriver (3.12.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sidekiq (5.1.3)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -213,22 +243,28 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  braintree
   byebug
   capybara (>= 2.15, < 4.0)
   carrierwave (~> 1.0)
   chromedriver-helper
   clearance
   coffee-rails (~> 4.2)
+  delayed_job_active_record
   figaro
   file_validators
   jbuilder (~> 2.5)
+  json (~> 1.8)
+  letter_opener
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
+  money-rails (~> 1.7)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq (~> 5.0, >= 5.0.5)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

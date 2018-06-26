@@ -1,0 +1,19 @@
+<h1> Edit Your Reservation </h1>
+
+<strong> <%= @listing.name %> </strong> <br/> 
+		 <%= @listing.description %> <br/> <br/> 
+
+<%= form_for @reservation, url: listing_reservation_path do |form| %>
+
+<div class="text-field">
+  <%= form.label :remarks %> <br/> 
+  <%= form.text_area :remarks %>
+</div>
+
+</br> 
+
+<div class="submit-field">
+  <%= form.submit %>
+</div>
+
+<% end %>	

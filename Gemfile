@@ -37,7 +37,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
 # Gem to support file validation 
 gem 'file_validators'
-
+# Use braintree for payment gateway  
+gem 'braintree'
+# Gem to humanized amount and currency 
+gem 'money-rails', '~> 1.7'
+gem 'json', '~> 1.8'
+# Gem to preview email 
+gem "letter_opener", :group => :development
+# Gem allow my app server to push a task into a queue that a background worker processes. 
+gem 'sidekiq', '~> 5.0', '>= 5.0.5'
+# Gem to run delayed_jobs  
+gem 'delayed_job_active_record'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

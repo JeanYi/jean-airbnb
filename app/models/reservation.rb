@@ -5,7 +5,8 @@ class Reservation < ApplicationRecord
 	validates :leaving_date, presence: true
   validate :arriving_date_cannot_be_in_the_past
   validate :leaving_date_before_arriving_date?
-  validate :check_overlap
+  validate :check_overlap, on: :create
+  enum payment_status: [:unpaid, :paid]
 
   def arriving_date_cannot_be_in_the_past
     if arriving_date.present? && arriving_date < Date.today
