@@ -44,6 +44,8 @@ gem 'money-rails', '~> 1.7'
 gem 'json', '~> 1.8'
 # Gem to preview email 
 gem "letter_opener", :group => :development
+# Gem allow my app server to push a task into a queue that a background worker processes. 
+gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
