@@ -7,6 +7,7 @@ class BraintreeController < ApplicationController
   def checkout
   	@reservation = Reservation.find(params[:id]) 
     @listing = @reservation.listing 
+    @user = @reservation.user
     @price = @listing.price_cents 
     @numberofdays = (@reservation.arriving_date...@reservation.leaving_date).count 
     @total_price = @price * @numberofdays
@@ -19,12 +20,10 @@ class BraintreeController < ApplicationController
       }
      )
 
-    @user = @reservation.user
-    
     if result.success?
       @reservation.update(total_price_cents: @total_price, payment_status:1) 
       redirect_to your_reservations_path, :flash => { :success => "Transaction successful!" }
-      ReservationMailer.booking_email(@user, @listing.user, @reservation).deliver_now 
+      SendReservationEmailJob.set(wait: 20.seconds).perform_later(@user, @listing.user, @reservation)  
     else
       redirect_to your_reservations_path, :flash => { :error => "Transaction failed. Please try again." }
     end

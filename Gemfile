@@ -46,7 +46,8 @@ gem 'json', '~> 1.8'
 gem "letter_opener", :group => :development
 # Gem allow my app server to push a task into a queue that a background worker processes. 
 gem 'sidekiq', '~> 5.0', '>= 5.0.5'
-
+# Gem to run delayed_jobs  
+gem 'delayed_job_active_record'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
