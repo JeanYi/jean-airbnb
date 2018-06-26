@@ -39,9 +39,11 @@ gem 'mini_magick', '~> 4.8'
 gem 'file_validators'
 # Use braintree for payment gateway  
 gem 'braintree'
-
+# Gem to humanized amount and currency 
 gem 'money-rails', '~> 1.7'
 gem 'json', '~> 1.8'
+# Gem to preview email 
+gem "letter_opener", :group => :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

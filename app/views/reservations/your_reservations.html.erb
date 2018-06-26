@@ -16,6 +16,7 @@
       <th>Total Price (RM)</th>
       <th>Remarks </th> 
       <th>Payment Status </th>
+      <th>Make Payment? </th>
     </tr>
     </tr>
   </thead>
@@ -32,6 +33,7 @@
         <td><%= humanized_money_with_symbol (r.listing.price_cents * (r.leaving_date - r.arriving_date).to_i) %> </td>
         <td><%= r.remarks %> <%= link_to 'Edit', edit_listing_reservation_path(listing_id: r.listing_id, id: r.id) %> </td>
         <td><%= r.payment_status.upcase %></td>
+        <td><%= link_to 'Pay', payment_path(id: r.id) %></td>
       </tr>
     <% end %>
   </tbody>

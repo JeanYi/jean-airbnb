@@ -18,11 +18,13 @@ class BraintreeController < ApplicationController
         :submit_for_settlement => true
       }
      )
-    byebug
+
+    @user = @reservation.user
     
     if result.success?
       @reservation.update(total_price_cents: @total_price, payment_status:1) 
       redirect_to your_reservations_path, :flash => { :success => "Transaction successful!" }
+      ReservationMailer.booking_email(@user, @listing.user, @reservation).deliver_now 
     else
       redirect_to your_reservations_path, :flash => { :error => "Transaction failed. Please try again." }
     end
